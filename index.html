@@ -1,0 +1,2294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>👑 Royal Birthday Celebration For Bade Bhaiya 🎂✨</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Courier+Prime:wght@700&family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Oswald:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CDN Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        /* ============================================================
+           ULTRA HIGH LUXURY PURE BLACK & AMBER GOLD DESIGN SYSTEM
+           ============================================================ */
+        :root {
+            --primary: #fbbf24;
+            --secondary: #f59e0b;
+            --accent: #d97706;
+            --gold-light: #fef08a;
+            --dark-bg: #000000;
+            --radial-bg: radial-gradient(circle at 50% 30%, #151104 0%, #000000 100%);
+            --card-bg: rgba(10, 10, 12, 0.92);
+            --glass-border: rgba(251, 191, 36, 0.45);
+            --text-main: #ffffff;
+            --text-muted: rgba(241, 245, 249, 0.85);
+            --glow-gold: 0 0 25px rgba(251, 191, 36, 0.55);
+            --glow-gold-strong: 0 0 50px rgba(251, 191, 36, 0.9);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { 
+            scroll-behavior: smooth; 
+            font-size: 16px;
+        }
+
+        body {
+            margin: 0;
+            background: var(--dark-bg);
+            color: var(--text-main);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            width: 100vw;
+            overflow-x: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) transparent;
+        }
+
+        body::-webkit-scrollbar { width: 6px; }
+        body::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+
+        /* Background WebGL Canvas */
+        #bg-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 1;
+            background: var(--radial-bg);
+            pointer-events: none;
+        }
+
+        button, a, .quality-box, .investigation-card, .close-btn, #scratch-wrapper, #music-btn, input, textarea {
+            cursor: pointer !important;
+        }
+
+        .cursive {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            font-size: clamp(2.2rem, 6.5vw, 5.5rem);
+            text-shadow: var(--glow-gold);
+            line-height: 1.2;
+            word-break: break-word;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+        
+        .playfair { 
+            font-family: 'Playfair Display', serif; 
+            word-break: break-word;
+        }
+
+        /* 🌟 HIGH-LEVEL LUXURY SHIMMER BUTTON */
+        .btn-glow {
+            position: relative;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, #d97706 100%);
+            color: #000000;
+            padding: clamp(14px, 2.5vw, 18px) clamp(28px, 4.5vw, 54px);
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: clamp(0.88rem, 1.8vw, 1.05rem);
+            border: 1.5px solid rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 30px rgba(251, 191, 36, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.6);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-decoration: none;
+            margin-top: 15px;
+            max-width: 100%;
+            animation: pulseGlowBtn 3s infinite ease-in-out;
+        }
+
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -75%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.85), transparent);
+            transform: rotate(25deg);
+            transition: all 0.75s ease;
+            pointer-events: none;
+        }
+
+        .btn-glow:hover::before {
+            left: 125%;
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 45px rgba(251, 191, 36, 0.9), 0 0 35px rgba(254, 240, 138, 0.7);
+            background: linear-gradient(135deg, #fef08a 0%, #fbbf24 50%, #d97706 100%);
+            border-color: #ffffff;
+        }
+
+        @keyframes pulseGlowBtn {
+            0%, 100% { box-shadow: 0 8px 30px rgba(251, 191, 36, 0.5); }
+            50% { box-shadow: 0 12px 40px rgba(251, 191, 36, 0.9), 0 0 25px rgba(254, 240, 138, 0.6); }
+        }
+
+        /* Transition Flash */
+        .transition-flash {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle, #fef08a, #fbbf24, transparent);
+            z-index: 350;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .transition-flash.active {
+            animation: flashBurst 1.5s ease forwards;
+        }
+
+        @keyframes flashBurst {
+            0% { opacity: 0; }
+            20% { opacity: 0.65; }
+            100% { opacity: 0; }
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 1: COUNTDOWN TIMER
+           ═══════════════════════════════════════ */
+        #countdown-section {
+            position: fixed;
+            inset: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(ellipse at center, #120e03 0%, #000000 100%);
+            z-index: 300;
+            transition: opacity 1s ease, transform 1s ease;
+            padding: 15px;
+        }
+
+        #countdown-section.hide {
+            opacity: 0;
+            transform: scale(1.1);
+            pointer-events: none;
+        }
+
+        .countdown-particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .countdown-particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(251, 191, 36, 0.7);
+            border-radius: 50%;
+            box-shadow: 0 0 12px rgba(251, 191, 36, 0.95);
+            animation: cParticleFloat 10s infinite ease-in-out;
+        }
+
+        @keyframes cParticleFloat {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            50% { transform: translateY(-150px) translateX(30px); opacity: 0.95; }
+        }
+
+        .countdown-gift {
+            font-size: clamp(38px, 8vw, 65px);
+            margin-bottom: clamp(10px, 2vw, 20px);
+            animation: giftBounce 2s infinite ease-in-out;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 0 25px rgba(251, 191, 36, 0.75));
+        }
+
+        @keyframes giftBounce {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(-5deg); }
+            75% { transform: translateY(-5px) rotate(5deg); }
+        }
+
+        .title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.2rem, 4vw, 2.5rem);
+            letter-spacing: clamp(2px, 0.5vw, 4px);
+            margin-bottom: 15px;
+            color: #ffffff;
+            text-align: center;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 2;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(0.9rem, 2.5vw, 1.4rem);
+            letter-spacing: clamp(1px, 0.6vw, 3px);
+            margin-bottom: clamp(20px, 4vw, 40px);
+            color: #fbbf24;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .dots {
+            display: inline-flex;
+            gap: 6px;
+            margin-left: 8px;
+            align-items: flex-end;
+            height: 30px;
+        }
+
+        .dots span {
+            width: clamp(6px, 1.5vw, 10px);
+            height: clamp(6px, 1.5vw, 10px);
+            background: #fbbf24;
+            border-radius: 50%;
+            display: inline-block;
+            animation: bounce 1.4s infinite ease-in-out;
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.9);
+        }
+
+        .dots span:nth-child(1) { animation-delay: 0s; }
+        .dots span:nth-child(2) { animation-delay: 0.2s; }
+        .dots span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: translateY(0) scale(0.8); opacity: 0.5; }
+            40% { transform: translateY(-15px) scale(1.2); opacity: 1; }
+        }
+
+        .mechanical-clock {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(4px, 1.2vw, 10px);
+            padding: clamp(15px, 3vw, 25px) clamp(12px, 3vw, 30px);
+            background: linear-gradient(180deg, #0d0d0f 0%, #050505 100%);
+            border-radius: clamp(12px, 2.5vw, 20px);
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.95),
+                0 0 40px rgba(251, 191, 36, 0.25),
+                inset 0 2px 10px rgba(255, 255, 255, 0.1);
+            border: 1.5px solid rgba(251, 191, 36, 0.45);
+            position: relative;
+            z-index: 2;
+            max-width: 100%;
+            width: auto;
+        }
+
+        .roller-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(5px, 1.5vw, 10px);
+            flex-shrink: 0;
+        }
+
+        .roller-pair {
+            display: flex;
+            gap: clamp(2px, 0.5vw, 4px);
+        }
+
+        .roller {
+            position: relative;
+            width: clamp(28px, 8vw, 65px);
+            height: clamp(45px, 12vw, 100px);
+            background: linear-gradient(180deg,
+                #000000 0%, #121215 20%, #1a1a20 50%,
+                #121215 80%, #000000 100%);
+            border-radius: clamp(4px, 1vw, 8px);
+            overflow: hidden;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            flex-shrink: 0;
+        }
+
+        .roller::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 30%;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0) 100%);
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .roller::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 30%;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0) 100%);
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .roller-strip {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.6s cubic-bezier(0.68, -0.15, 0.27, 1.15);
+        }
+
+        .roller-strip.instant { transition: none; }
+
+        .roller-digit {
+            width: 100%;
+            height: clamp(45px, 12vw, 100px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: clamp(26px, 7.5vw, 62px);
+            color: #fbbf24;
+            text-shadow: 0 0 15px rgba(251, 191, 36, 0.7);
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .roller-highlight {
+            position: absolute;
+            top: 50%; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.6), transparent);
+            transform: translateY(-50%);
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        .colon-separator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(6px, 2vw, 14px);
+            height: clamp(45px, 12vw, 100px);
+            padding: 0 clamp(2px, 0.6vw, 5px);
+            flex-shrink: 0;
+            align-self: flex-start;
+        }
+
+        .colon-dot {
+            width: clamp(4px, 1.2vw, 8px);
+            height: clamp(4px, 1.2vw, 8px);
+            background: #fbbf24;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.9);
+            animation: colonPulse 1s infinite ease-in-out;
+        }
+
+        .colon-dot:nth-child(2) { animation-delay: 0.15s; }
+
+        @keyframes colonPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(0.85); }
+        }
+
+        .roller-label {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(0.5rem, 1.4vw, 0.75rem);
+            color: #fbbf24;
+            letter-spacing: clamp(1px, 0.4vw, 3px);
+            text-transform: uppercase;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 2: ROYAL GOLD & PURE BLACK ENVELOPE GATE
+           ═══════════════════════════════════════ */
+        #landing-page {
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(251, 191, 36, 0.22) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(245, 158, 11, 0.18) 0%, transparent 50%),
+                linear-gradient(180deg, #000000 0%, #08080a 40%, #0f0d05 70%, #000000 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+            perspective: 1500px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s ease;
+            overflow: hidden;
+        }
+
+        #landing-page.show { opacity: 1; pointer-events: all; }
+        #landing-page.hide { opacity: 0; pointer-events: none; }
+
+        .landing-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(251, 191, 36, 0.95);
+            border-radius: 50%;
+            box-shadow: 0 0 14px rgba(251, 191, 36, 0.95);
+            animation: floatParticle 8s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes floatParticle {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            50% { transform: translateY(-200px) translateX(50px); opacity: 1; }
+        }
+
+        #typewriter-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            margin-bottom: 30px;
+            min-height: 70px;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        #typewriter-container.show { opacity: 1; }
+        #typewriter-container.fade { opacity: 0; }
+
+        .typewriter-line {
+            font-family: 'Courier Prime', monospace;
+            color: #fef08a;
+            font-size: clamp(13px, 2.8vw, 20px);
+            letter-spacing: 2px;
+            line-height: 1.8;
+            white-space: nowrap;
+            text-shadow: 0 2px 12px rgba(251, 191, 36, 0.7);
+            font-weight: 700;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1em;
+            background: #fbbf24;
+            margin-left: 3px;
+            animation: blinkCursor 0.7s infinite;
+            vertical-align: text-bottom;
+        }
+
+        @keyframes blinkCursor {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .envelope-wrapper {
+            position: relative;
+            width: clamp(290px, 78vw, 450px);
+            height: clamp(210px, 56vw, 315px);
+            transform: translateY(120vh);
+            transition: transform 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-style: preserve-3d;
+            z-index: 5;
+        }
+
+        .envelope-wrapper.slide-up { transform: translateY(0); }
+        .envelope-wrapper.shrink {
+            animation: envelopeShrink 1.5s ease-in forwards;
+        }
+
+        @keyframes envelopeShrink {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(0) scale(0.3); opacity: 0; }
+        }
+
+        .envelope {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.95));
+        }
+
+        .envelope-body {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, #121215 0%, #09090b 50%, #000000 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            z-index: 1;
+            border: 1.5px solid rgba(251, 191, 36, 0.5);
+        }
+
+        .envelope-inner-shadow {
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            box-shadow: inset 0 5px 20px rgba(0, 0, 0, 0.8);
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .envelope-gold-border {
+            position: absolute;
+            inset: 6px;
+            border: 1.5px solid rgba(251, 191, 36, 0.65);
+            border-radius: 8px;
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        .envelope-card {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0.85);
+            width: 86%; height: 82%;
+            background: linear-gradient(145deg, #18181c, #0d0d0f, #121008);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.9);
+            z-index: 2;
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1.5px solid rgba(251, 191, 36, 0.5);
+        }
+
+        .envelope-wrapper.card-out .envelope-card {
+            animation: cardSlideOut 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes cardSlideOut {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.85); }
+            30% { opacity: 1; }
+            100% { opacity: 1; transform: translate(-50%, -180%) scale(1); }
+        }
+
+        .envelope-card-inner { text-align: center; padding: 15px; }
+        .envelope-card-inner .mini-emoji { font-size: clamp(22px, 4vw, 32px); margin-bottom: 5px; }
+        .envelope-card-inner .mini-text {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(9px, 1.8vw, 12px);
+            color: #fbbf24;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .envelope-card-inner .mini-name {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(18px, 4.5vw, 28px);
+            color: #ffffff;
+            margin-top: 5px;
+            font-weight: 900;
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 55%;
+            transform-origin: top center;
+            transform: rotateX(0deg);
+            transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 6;
+        }
+
+        .envelope-flap svg {
+            width: 100%; height: 100%;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.8));
+        }
+
+        .envelope-flap .flap-main { fill: url(#goldNavyFlapGradient); }
+        .envelope-flap .flap-shadow { fill: url(#goldNavyFlapShadowGradient); }
+        .envelope-flap .flap-edge {
+            fill: none;
+            stroke: rgba(251, 191, 36, 0.85);
+            stroke-width: 1.5;
+        }
+
+        .envelope-wrapper.opened .envelope-flap {
+            transform: rotateX(180deg);
+            z-index: 0;
+        }
+
+        /* ROYAL GOLD WAX SEAL */
+        .wax-seal {
+            position: absolute;
+            top: 48%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: clamp(55px, 13vw, 82px);
+            height: clamp(55px, 13vw, 82px);
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #fef08a, #fbbf24 30%, #d97706 70%, #92400e 100%);
+            box-shadow: 0 0 35px rgba(251, 191, 36, 0.9), 0 0 65px rgba(251, 191, 36, 0.45);
+            z-index: 10;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            animation: sealPulse 2s infinite ease-in-out;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .seal-monogram {
+            font-family: 'Cinzel', serif;
+            color: #000000;
+            font-size: clamp(24px, 5.5vw, 36px);
+            font-weight: 900;
+        }
+
+        .wax-seal.breaking { animation: sealBreak 0.8s ease forwards; }
+
+        @keyframes sealBreak {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            30% { transform: translate(-50%, -50%) scale(1.3) rotate(-10deg); }
+            60% { transform: translate(-50%, -50%) scale(1.5) rotate(15deg); opacity: 0.7; }
+            100% { transform: translate(-50%, -50%) scale(0) rotate(180deg); opacity: 0; }
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 3: ROYAL PARCHMENT SCROLL INVITATION
+           ═══════════════════════════════════════ */
+        #message-page {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(ellipse at center, #120e03 0%, #09090b 50%, #000000 100%);
+            z-index: 150;
+            opacity: 0;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        #message-page.visible {
+            opacity: 1;
+            pointer-events: all;
+            transition: opacity 0.5s ease;
+        }
+
+        #message-page.exit {
+            animation: pageZoomOut 1.2s ease-in forwards;
+        }
+
+        @keyframes pageZoomOut {
+            0% { transform: scale(1); opacity: 1; filter: blur(0); }
+            100% { transform: scale(1.5); opacity: 0; filter: blur(15px); }
+        }
+
+        .scroll-container {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            transform: scale(0.5);
+            opacity: 0;
+            z-index: 2;
+        }
+
+        #message-page.visible .scroll-container {
+            animation: cardExpand 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes cardExpand {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .scroll-rod {
+            position: relative;
+            width: 100%;
+            height: 36px;
+            background: linear-gradient(180deg, #fef08a 0%, #fbbf24 50%, #d97706 100%);
+            border-radius: 18px;
+            z-index: 3;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.5);
+        }
+
+        .scroll-body {
+            position: relative;
+            background: linear-gradient(145deg, #121215 0%, #08080a 50%, #100d04 100%);
+            padding: 40px 25px 35px 25px;
+            min-height: 380px;
+            z-index: 2;
+            text-align: center;
+            border-left: 2px solid rgba(251, 191, 36, 0.45);
+            border-right: 2px solid rgba(251, 191, 36, 0.45);
+        }
+
+        .card-header-emoji { font-size: 2.2rem; margin-bottom: 5px; }
+        .card-header-text {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            color: #fbbf24;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .card-name-heading {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(28px, 6.5vw, 45px);
+            color: #ffffff;
+            margin-bottom: 12px;
+            font-weight: 900;
+        }
+
+        .wishes-container {
+            min-height: 150px;
+            padding: 10px 5px;
+            text-align: center;
+        }
+
+        .wish-line {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(14px, 2.5vw, 17px);
+            color: #e2e8f0;
+            line-height: 1.8;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .wish-line.accent {
+            color: #fbbf24;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(15px, 2.8vw, 19px);
+            font-weight: 700;
+        }
+
+        .lets-go-container {
+            text-align: center;
+            margin-top: 15px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        .lets-go-container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .lets-go-btn {
+            position: relative;
+            padding: 14px 40px;
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            border: 1.5px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            color: #000000;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.5);
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: pulseGlowBtn 3s infinite ease-in-out;
+        }
+
+        .lets-go-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -75%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.85), transparent);
+            transform: rotate(25deg);
+            transition: all 0.75s ease;
+            pointer-events: none;
+        }
+
+        .lets-go-btn:hover::before {
+            left: 125%;
+        }
+
+        .lets-go-btn:hover {
+            transform: translateY(-4px) scale(1.06);
+            box-shadow: 0 14px 35px rgba(251, 191, 36, 0.85), 0 0 25px rgba(254, 240, 138, 0.7);
+        }
+
+        /* Floating Audio Control Button */
+        #music-btn {
+            position: fixed;
+            bottom: 20px; right: 20px;
+            background: var(--card-bg);
+            backdrop-filter: blur(25px);
+            border: 1.5px solid rgba(251, 191, 36, 0.45);
+            width: clamp(44px, 6vw, 54px);
+            height: clamp(44px, 6vw, 54px);
+            border-radius: 50%;
+            z-index: 999;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--glow-gold);
+            transition: all 0.3s ease;
+        }
+        #music-btn:hover {
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: var(--glow-gold-strong);
+        }
+
+        /* ═══════════════════════════════════════
+           SECTION 4: MAIN BIRTHDAY HOME PAGE
+           ═══════════════════════════════════════ */
+        main {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 1.2s ease;
+            display: none;
+        }
+        main.visible { 
+            display: block;
+            opacity: 1; 
+        }
+
+        section {
+            padding: clamp(40px, 8vw, 100px) clamp(12px, 4vw, 8%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Double-Bezel Card Architecture */
+        .content-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(25px);
+            border: 1.5px solid var(--glass-border);
+            border-radius: clamp(20px, 4vw, 30px);
+            padding: clamp(20px, 4vw, 50px);
+            max-width: 900px;
+            width: 100%;
+            margin: 15px auto;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.95), 0 0 45px rgba(251, 191, 36, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.15);
+            transition: all 0.4s ease;
+        }
+        .content-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--glow-gold);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .form-label {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: clamp(10px, 2vw, 14px) clamp(14px, 2.5vw, 20px);
+            background: rgba(5, 5, 6, 0.9);
+            border: 1.5px solid var(--glass-border);
+            border-radius: 16px;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(0.85rem, 1.6vw, 0.95rem);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .form-input:focus, .form-textarea:focus {
+            border-color: var(--primary);
+            box-shadow: var(--glow-gold);
+        }
+        .form-file-input {
+            padding: 10px;
+            background: rgba(5, 5, 6, 0.9);
+            border: 1.5px dashed var(--glass-border);
+            border-radius: 16px;
+            color: var(--text-muted);
+            width: 100%;
+        }
+
+        .qualities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(clamp(240px, 45%, 340px), 1fr));
+            gap: clamp(15px, 3vw, 25px);
+            width: 100%;
+            max-width: 1100px;
+            margin-top: 25px;
+        }
+        .quality-box {
+            background: rgba(18, 18, 22, 0.9);
+            backdrop-filter: blur(25px);
+            border: 1.5px solid var(--glass-border);
+            padding: clamp(20px, 3.5vw, 35px);
+            border-radius: 22px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .quality-box:hover {
+            transform: translateY(-8px) scale(1.04);
+            border-color: var(--primary);
+            box-shadow: var(--glow-gold-strong);
+            background: rgba(28, 28, 34, 0.95);
+        }
+
+        .investigation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(clamp(220px, 30%, 280px), 1fr));
+            gap: 18px;
+            width: 100%;
+            max-width: 950px;
+            margin-top: 25px;
+        }
+        .investigation-card {
+            background: rgba(12, 12, 14, 0.9);
+            border: 1.5px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 20px 15px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .investigation-card:hover, .investigation-card.active {
+            border-color: var(--primary);
+            background: rgba(24, 24, 30, 0.95);
+            box-shadow: var(--glow-gold-strong);
+            transform: translateY(-6px) scale(1.03);
+        }
+
+        .news-box {
+            background: rgba(5, 5, 6, 0.95);
+            border: 1.5px dashed var(--primary);
+            border-radius: 24px;
+            padding: clamp(20px, 4vw, 38px);
+            max-width: 950px;
+            width: 100%;
+            margin-top: 25px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+            line-height: 1.8;
+        }
+
+        #scratch-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 380px;
+            height: clamp(180px, 25vw, 210px);
+            margin: 20px auto;
+            border-radius: 22px;
+            overflow: hidden;
+            border: 2px solid var(--primary);
+            box-shadow: var(--glow-gold);
+            touch-action: none;
+            transition: all 0.4s ease;
+        }
+        #scratch-wrapper:hover {
+            box-shadow: var(--glow-gold-strong);
+            transform: scale(1.02);
+        }
+        #scratch-canvas {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 2;
+            touch-action: none;
+        }
+        .scratch-content {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, #18181c, #08080a);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            z-index: 1;
+            text-align: center;
+        }
+
+        #cake-container {
+            width: 100%;
+            max-width: 560px;
+            height: clamp(260px, 45vw, 400px);
+            margin: 15px auto;
+            position: relative;
+            background: radial-gradient(circle at center, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
+            border-radius: 25px;
+        }
+
+        /* 🌟 HIGH ADVANCE LEVEL SMOOTH MODAL & CLOSE BUTTON */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.96);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px 15px;
+            overflow-y: auto;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s ease;
+        }
+        .modal.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, rgba(18, 18, 22, 0.97), rgba(8, 8, 10, 0.99));
+            border: 1.5px solid rgba(251, 191, 36, 0.55);
+            padding: clamp(25px, 5vw, 55px);
+            border-radius: 32px;
+            max-width: 720px;
+            width: 100%;
+            box-shadow: 0 35px 80px rgba(0, 0, 0, 0.98), 0 0 60px rgba(251, 191, 36, 0.45), inset 0 2px 10px rgba(255, 255, 255, 0.15);
+            position: relative;
+            margin: auto;
+            text-align: center;
+            transform: scale(0.65) translateY(50px) rotateX(15deg);
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-style: preserve-3d;
+        }
+        .modal.open .modal-content {
+            transform: scale(1) translateY(0) rotateX(0deg);
+        }
+
+        /* STUNNING CLOSE BUTTON */
+        .close-btn {
+            position: absolute;
+            top: 20px; right: 22px;
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: rgba(251, 191, 36, 0.15);
+            backdrop-filter: blur(12px);
+            border: 1.5px solid rgba(251, 191, 36, 0.5);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer !important;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), inset 0 1px 3px rgba(255, 255, 255, 0.3);
+            z-index: 20;
+        }
+        .close-btn:hover {
+            color: #000000;
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            border-color: #ffffff;
+            transform: rotate(90deg) scale(1.15);
+            box-shadow: 0 0 25px rgba(251, 191, 36, 0.85), 0 0 15px rgba(254, 240, 138, 0.7);
+        }
+
+        /* Line by line smooth reveal in Letter */
+        .letter-p {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .modal.open .letter-p:nth-child(1) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+        .modal.open .letter-p:nth-child(2) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
+        .modal.open .letter-p:nth-child(3) { transition-delay: 0.55s; opacity: 1; transform: translateY(0); }
+        .modal.open .letter-p:nth-child(4) { transition-delay: 0.75s; opacity: 1; transform: translateY(0); }
+
+        footer {
+            padding: 25px 15px;
+            text-align: center;
+            font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+            color: rgba(255, 255, 255, 0.65);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Audio Element -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="transition-flash" id="transition-flash"></div>
+
+    <!-- 3D Infinite Golden Dust Particles WebGL Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- ===== STEP 1: MECHANICAL COUNTDOWN TIMER ===== -->
+    <section id="countdown-section">
+      <div class="countdown-particles" id="countdown-particles"></div>
+      <div class="countdown-gift">👑</div>
+      <h1 class="title">A Royal Gift For Bade Bhaiya</h1>
+      <h3 class="subtitle">
+        Loading Celebration
+        <span class="dots"><span></span><span></span><span></span></span>
+      </h3>
+
+      <div class="mechanical-clock">
+        <div class="roller-group">
+          <div class="roller-pair">
+            <div class="roller"><div class="roller-strip" id="days-tens"></div><div class="roller-highlight"></div></div>
+            <div class="roller"><div class="roller-strip" id="days-ones"></div><div class="roller-highlight"></div></div>
+          </div>
+          <div class="roller-label">DAYS</div>
+        </div>
+        <div class="colon-separator"><div class="colon-dot"></div><div class="colon-dot"></div></div>
+        <div class="roller-group">
+          <div class="roller-pair">
+            <div class="roller"><div class="roller-strip" id="hours-tens"></div><div class="roller-highlight"></div></div>
+            <div class="roller"><div class="roller-strip" id="hours-ones"></div><div class="roller-highlight"></div></div>
+          </div>
+          <div class="roller-label">HRS</div>
+        </div>
+        <div class="colon-separator"><div class="colon-dot"></div><div class="colon-dot"></div></div>
+        <div class="roller-group">
+          <div class="roller-pair">
+            <div class="roller"><div class="roller-strip" id="mins-tens"></div><div class="roller-highlight"></div></div>
+            <div class="roller"><div class="roller-strip" id="mins-ones"></div><div class="roller-highlight"></div></div>
+          </div>
+          <div class="roller-label">MIN</div>
+        </div>
+        <div class="colon-separator"><div class="colon-dot"></div><div class="colon-dot"></div></div>
+        <div class="roller-group">
+          <div class="roller-pair">
+            <div class="roller"><div class="roller-strip" id="secs-tens"></div><div class="roller-highlight"></div></div>
+            <div class="roller"><div class="roller-strip" id="secs-ones"></div><div class="roller-highlight"></div></div>
+          </div>
+          <div class="roller-label">SEC</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STEP 2: ROYAL GOLD & PURE BLACK ENVELOPE GATE ===== -->
+    <div id="landing-page">
+      <div id="landing-particles"></div>
+      <div id="typewriter-container">
+        <div class="typewriter-line" id="typewriter-line1"></div>
+        <div class="typewriter-line" id="typewriter-line2"></div>
+      </div>
+      <div class="envelope-wrapper" id="envelope-wrapper">
+        <div class="envelope">
+          <div class="envelope-body"></div>
+          <div class="envelope-inner-shadow"></div>
+          <div class="envelope-gold-border"></div>
+
+          <div class="envelope-card">
+            <div class="envelope-card-inner">
+              <div class="mini-emoji">👑</div>
+              <div class="mini-text">Royal Invitation</div>
+              <div class="mini-name">Happy Birthday</div>
+            </div>
+          </div>
+
+          <!-- ROYAL V-SHAPED FLAP WITH SHIMMERING GOLD TRIM -->
+          <div class="envelope-flap">
+            <svg viewBox="0 0 440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="goldNavyFlapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#26262a"/>
+                  <stop offset="30%" style="stop-color:#121215"/>
+                  <stop offset="70%" style="stop-color:#09090b"/>
+                  <stop offset="100%" style="stop-color:#000000"/>
+                </linearGradient>
+                <linearGradient id="goldNavyFlapShadowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:rgba(0,0,0,0)"/>
+                  <stop offset="100%" style="stop-color:rgba(0,0,0,0.85)"/>
+                </linearGradient>
+              </defs>
+              <path class="flap-main" d="M 0 0 L 440 0 L 440 15 L 220 215 L 0 15 Z"/>
+              <path class="flap-shadow" d="M 0 0 L 440 0 L 440 15 L 220 215 L 0 15 Z"/>
+              <path class="flap-edge" d="M 5 18 L 220 210 L 435 18"/>
+            </svg>
+          </div>
+
+          <!-- GOLD WAX SEAL WITH BHAIYA MONOGRAM -->
+          <div class="wax-seal" id="wax-seal">
+            <div class="seal-monogram">B</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== STEP 3: ROYAL PARCHMENT SCROLL INVITATION MESSAGE ===== -->
+    <div id="message-page">
+      <div class="scroll-container">
+        <div class="scroll-rod"></div>
+        <div class="scroll-body">
+          <div class="card-header-emoji">👑</div>
+          <div class="card-header-text">A Royal Invitation</div>
+          <div class="card-name-heading">Bade Bhaiya 🌟</div>
+
+          <div class="wishes-container">
+            <div class="wish-line" id="wish-1"></div>
+            <div class="wish-line accent" id="wish-2"></div>
+            <div class="wish-line" id="wish-3"></div>
+            <div class="wish-line accent" id="wish-4"></div>
+          </div>
+
+          <div class="lets-go-container" id="lets-go-container">
+            <button class="lets-go-btn" id="lets-go-btn">
+              Let's Celebrate <span class="arrow">→</span>
+            </button>
+          </div>
+        </div>
+        <div class="scroll-rod"></div>
+      </div>
+    </div>
+
+    <!-- Floating Audio Control Button -->
+    <div id="music-btn">
+        <i id="music-icon" class="fas fa-music" style="color: var(--primary);"></i>
+    </div>
+
+    <!-- ===== STEP 4: MAIN BIRTHDAY HOME PAGE ===== -->
+    <main id="main-content">
+
+        <!-- 1. HERO TITLE SECTION -->
+        <section id="hero">
+            <p class="playfair" style="letter-spacing: 4px; font-size: clamp(0.85rem, 1.8vw, 1.1rem); color: var(--primary); text-transform: uppercase; font-weight: 700;">
+                HAPPY BIRTHDAY TO MY MENTOR & GUIDE
+            </p>
+            <h1 class="cursive">Mere Pyare Bade Bhaiya... 👑❤️</h1>
+            <p class="playfair" style="font-size: clamp(1.1rem, 2.5vw, 2rem); color: var(--text-muted); margin-top: 15px; font-style: italic;">
+                "A big brother is a protector, a guide, a true friend, and a lifelong inspiration."
+            </p>
+        </section>
+
+        <!-- 2. HIGH-LEVEL PRO 3D BIRTHDAY CAKE & FRONT SLICE CUTTING ANIMATION -->
+        <section id="cake">
+            <p class="playfair" style="color: var(--primary); letter-spacing: 3px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700;">MAKE A WISH & CUT A SLICE</p>
+            <h2 class="playfair" style="font-size: clamp(1.6rem, 3.5vw, 2.6rem); margin-top: 10px; color: #ffffff;">Cut Your Birthday Cake Slice Bhaiya 🎂🔪</h2>
+            
+            <div id="cake-container">
+                <canvas id="cake-canvas" style="width: 100%; height: 100%;"></canvas>
+            </div>
+
+            <button class="btn-glow" id="blow-btn">
+                <span>Cut Cake Slice & Make Wish 🎂🔪</span>
+            </button>
+            <p id="wish-msg" class="cursive" style="font-size: clamp(1.8rem, 4vw, 2.5rem); margin-top: 15px; opacity: 0; transition: opacity 1s; color: var(--primary);">
+                Cake Slice Cut! Your wish has been sent to the stars! ✨
+            </p>
+        </section>
+
+        <!-- 3. LETTER SECTION -->
+        <section id="story">
+            <div class="content-card">
+                <p class="playfair" style="color: var(--primary); letter-spacing: 3px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700;">A LETTER FROM DIL ❤️</p>
+                <h2 class="playfair" style="font-size: clamp(1.6rem, 3.5vw, 2.6rem); margin: 15px 0; color: #fff;">To My Dearest Bade Bhaiya 📜</h2>
+                <p style="color: var(--text-muted); line-height: 1.9; font-size: clamp(0.9rem, 1.6vw, 1.1rem); margin-bottom: 25px;">
+                    Aapka hona mere life ki sabse badi strength hai. Aapne hamesha har mushkil me mera sath diya aur sahi rasta dikhaya. Is special din par dil se ek chota sa message...
+                </p>
+                <button class="btn-glow" id="open-letter-btn">
+                    <span>Read Full Letter 📜</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- 4. QUALITIES SECTION -->
+        <section id="qualities">
+            <p class="playfair" style="color: var(--primary); letter-spacing: 3px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700;">WHAT MAKES YOU LEGENDARY</p>
+            <h2 class="playfair" style="font-size: clamp(1.6rem, 3.5vw, 2.6rem); margin-top: 10px; color: #ffffff;">Your Incredible Qualities 🌟</h2>
+            
+            <div class="qualities-grid">
+                <div class="quality-box">
+                    <i class="fas fa-compass quality-icon" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 12px; display: inline-block;"></i>
+                    <h3 class="playfair" style="font-size: 1.3rem; color: #fff; margin-bottom: 10px; font-weight: 700;">The Ultimate Guide 🧭</h3>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">Aapki har ek advice aur guidance hamesha sahi rasta dikhati hai aur har problem ko aasan bana deti hai.</p>
+                </div>
+
+                <div class="quality-box">
+                    <i class="fas fa-shield-halved quality-icon" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 12px; display: inline-block;"></i>
+                    <h3 class="playfair" style="font-size: 1.3rem; color: #fff; margin-bottom: 10px; font-weight: 700;">Unshakable Shield 🛡️</h3>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">Har situation me hamare aage ek majboot rock ki tarah khade rehne wale Bhaiya.</p>
+                </div>
+
+                <div class="quality-box">
+                    <i class="fas fa-bolt quality-icon" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 12px; display: inline-block;"></i>
+                    <h3 class="playfair" style="font-size: 1.3rem; color: #fff; margin-bottom: 10px; font-weight: 700;">Inspiring Hustler ⚡</h3>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">Aapka hard work, ambition aur dedication dekh kar mujhe hamesha life me aage badhne ki inspiration milti hai.</p>
+                </div>
+
+                <div class="quality-box">
+                    <i class="fas fa-crown quality-icon" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 12px; display: inline-block;"></i>
+                    <h3 class="playfair" style="font-size: 1.3rem; color: #fff; margin-bottom: 10px; font-weight: 700;">Coolest Best Friend 😎</h3>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">Sirf elder brother nahi, balki maze karne, mazaak udaane aur late night baatein karne wale best friend.</p>
+                </div>
+
+                <div class="quality-box">
+                    <i class="fas fa-heart quality-icon" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 12px; display: inline-block;"></i>
+                    <h3 class="playfair" style="font-size: 1.3rem; color: #fff; margin-bottom: 10px; font-weight: 700;">Golden Heart 💛</h3>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">Sabki silent care karne wala, bina jataaye help karne wala aur sabse bada, pyaara dil.</p>
+                </div>
+
+                <div class="quality-box">
+                    <i class="fas fa-gem quality-icon" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 12px; display: inline-block;"></i>
+                    <h3 class="playfair" style="font-size: 1.3rem; color: #fff; margin-bottom: 10px; font-weight: 700;">One In A Million 💎</h3>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">Duniya me hazaron rishte honge, par aap jaisa Bade Bhaiya milna sabse badi blessing hai!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SCRATCH CARD SECTION -->
+        <section id="scratch">
+            <p class="playfair" style="color: var(--primary); letter-spacing: 3px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700;">SECRET SURPRISE</p>
+            <h2 class="playfair" style="font-size: clamp(1.6rem, 3.5vw, 2.6rem); margin-top: 10px; color: #ffffff;">Scratch To Reveal Secret 🎁</h2>
+            
+            <div id="scratch-wrapper">
+                <div class="scratch-content">
+                    <span style="font-size: 2rem; margin-bottom: 5px;">👑🎁</span>
+                    <h3 class="playfair" style="font-size: 1.2rem; color: var(--primary); font-weight: 700;">Surprise Bhaiya! 🎁</h3>
+                    <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 5px;">Sorry agar koi mehnga gift time pe ready nahi ho paya, par aaj se aapko mujhse 3 Special Favors / Demands ki full permission hai anytime! ✨</p>
+                </div>
+                <canvas id="scratch-canvas"></canvas>
+            </div>
+        </section>
+
+        <!-- 6. BIRTHDAY INVESTIGATION DEPARTMENT SECTION -->
+        <section id="investigation">
+            <p class="playfair" style="color: var(--primary); letter-spacing: 3px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700;">SPECIAL REPORT</p>
+            <h2 class="playfair" style="font-size: clamp(1.6rem, 3.5vw, 2.8rem); margin-top: 10px; color: var(--primary);">Birthday Party Investigation Unit 🕵️‍♂️</h2>
+            <p style="color: var(--text-muted); margin-top: 5px; font-size: 0.9rem;">Investigation se pata chala hai ki Bhaiya ka birthday aa gaya hai! 🎂</p>
+            <p style="color: var(--primary); margin-top: 5px; font-style: italic; font-size: 0.9rem;">Ab sabse bada sawal... "Party kab aur kahan hone wali hai Bhaiya?" 🤫</p>
+
+            <div class="investigation-grid">
+                <div class="investigation-card active" onclick="selectProposal('Aaj Hi Grand Treat 🎉', this)">
+                    <span class="investigation-icon" style="font-size: 2.2rem; margin-bottom: 8px; display: block;">🎉</span>
+                    <h3 class="playfair" style="color: #fff; font-size: 1.15rem; margin-bottom: 6px; font-weight: 700;">Aaj Hi Grand Treat</h3>
+                    <p style="font-size: 0.82rem; color: var(--text-muted);">Bhaiya hum sab ready hain! Bas aapke ek इशारा aur green signal ka intezaar hai!</p>
+                </div>
+                <div class="investigation-card" onclick="selectProposal('Weekend Party Bash 🍕', this)">
+                    <span class="investigation-icon" style="font-size: 2.2rem; margin-bottom: 8px; display: block;">🍕</span>
+                    <h3 class="playfair" style="color: #fff; font-size: 1.15rem; margin-bottom: 6px; font-weight: 700;">Weekend Party Bash</h3>
+                    <p style="font-size: 0.82rem; color: var(--text-muted);">Ek grand party, delicious khana aur bohot saari maze-dar yaadein!</p>
+                </div>
+                <div class="investigation-card" onclick="selectProposal('Royal Verdict 😎', this)">
+                    <span class="investigation-icon" style="font-size: 2.2rem; margin-bottom: 8px; display: block;">😎</span>
+                    <h3 class="playfair" style="color: #fff; font-size: 1.15rem; margin-bottom: 6px; font-weight: 700;">Bhaiya's Royal Verdict</h3>
+                    <p style="font-size: 0.82rem; color: var(--text-muted);">Bhaiya jo spot aur time decide karein, wahi final verdict hoga!</p>
+                </div>
+            </div>
+
+            <!-- Dynamic Breaking News Box -->
+            <div class="news-box">
+                <span class="playfair" style="font-size: 1.2rem; letter-spacing: 2px; color: var(--primary); font-weight: 700;">📰 Breaking News!</span>
+                <p style="margin-top: 8px; color: #fff;">Investigation report submit ho chuki hai. Sources ke mutabik Bhaiya ke birthday celebration ki taiyariyan zoron par hain. ✅</p>
+                <p style="margin-top: 8px; font-size: 1.1rem; color: var(--primary); font-weight: 700;">
+                    Selected Proposal: <span id="proposal-name" style="color: var(--primary);">Aaj Hi Grand Treat 🎉</span>
+                </p>
+                <p style="margin-top: 8px; color: var(--text-muted); font-size: 0.9rem;">
+                    Well-wishers aur hum sab ki taraf se party proposal final ho chuka hai. 🎂
+                </p>
+                <p style="margin-top: 10px; color: var(--primary); font-style: italic;">
+                    Bas aapki grand party ka intezaar hai... 👀
+                </p>
+                <h3 class="cursive" style="font-size: clamp(1.8rem, 4vw, 2.5rem); color: var(--primary); margin-top: 12px;">
+                    "To batao Bhaiya, Party Kab De Rahe Ho?" 🎉
+                </h3>
+            </div>
+        </section>
+
+        <!-- 7. CLAIM YOUR BIRTHDAY GIFT FORM SECTION -->
+        <section id="claim-gift-section">
+            <div class="content-card">
+                <p class="playfair" style="color: var(--primary); letter-spacing: 3px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700;">SPECIAL BIRTHDAY REQUEST</p>
+                <h2 class="playfair" style="font-size: clamp(1.6rem, 3.5vw, 2.8rem); margin: 10px 0 20px 0; color: #fff;">Claim Your Birthday Gift / Demand 🎁✨</h2>
+                <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.9rem;">
+                   Bhaiya, batayein aapko mere se kya gift, gadget ya treat chahiye!
+                </p>
+
+                <!-- In-Page FormSubmit via AJAX fetch -->
+                <form id="gift-form">
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-gift" style="margin-right: 8px;"></i> 1. Gift / Demand Ka Naam</label>
+                        <input type="text" id="gift_name" name="Gift Name" class="form-input" placeholder="What gift would you like? (e.g. Watch, Sneakers, Gadget, Treat)">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-pen-fancy" style="margin-right: 8px;"></i> 2. Description / Details</label>
+                        <textarea id="gift_desc" name="Gift Description" rows="4" class="form-textarea" placeholder="Tell me any specific brand, color, or details... (Optional)"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label"><i class="fas fa-image" style="margin-right: 8px;"></i> 3. Photo Upload (Optional Reference Image)</label>
+                        <input type="file" id="gift_file" name="attachment" accept="image/*" class="form-file-input">
+                    </div>
+
+                    <button type="submit" id="submit-gift-btn" class="btn-glow" style="width: 100%; margin-top: 10px;">
+                        <span>Send Gift Demand Direct To Me 🎁✨</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- 8. FINAL BIRTHDAY WISH FROM SIBLING (AT THE VERY BOTTOM) -->
+        <section id="final-wish" style="padding-bottom: 80px;">
+            <div class="content-card" style="border-color: var(--primary); background: rgba(12, 12, 14, 0.95);">
+                <p class="playfair" style="color: var(--primary); letter-spacing: 3px; font-size: 0.85rem; text-transform: uppercase; font-weight: 700;">FROM THE BOTTOM OF MY HEART</p>
+                <h2 class="cursive" style="font-size: clamp(2.4rem, 6vw, 5rem); margin: 15px 0; color: var(--primary);">
+                    Once Again, Happy Birthday Bade Bhaiya 🎂👑
+                </h2>
+                <p class="playfair" style="color: #ffffff; font-size: clamp(1rem, 2vw, 1.4rem); line-height: 1.8; margin-bottom: 22px; font-style: italic;">
+                    "May all your dreams come true, may you conquer every mountain of success, and may your life be blessed with ultimate health, wealth and joy." ✨👑
+                </p>
+                
+                <button class="btn-glow" id="send-love-btn">
+                    <span> Thanks Bhaiya  🤗❤️</span>
+                </button>
+
+                <!-- In-Page Message -->
+                <p id="love-msg" class="cursive" style="font-size: clamp(1.8rem, 4.5vw, 3rem); color: var(--primary); margin-top: 20px; opacity: 0; transition: opacity 0.8s ease;">
+                    Sending big respect, endless love & warmest birthday hugs to Bade Bhaiya! 🤗❤️✨
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scrollable High-Level Animated Modal Popup for Full Letter -->
+    <div class="modal" id="letter-modal">
+        <div class="modal-content">
+            <button class="close-btn" id="modal-close" aria-label="Close Modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 class="cursive" style="font-size: clamp(2.2rem, 4.5vw, 3.2rem); margin-bottom: 22px; color: var(--primary);">To Dearest Bade Bhaiya... 👑❤️</h2>
+            <div style="color: #eee; line-height: 2; font-size: clamp(0.92rem, 1.6vw, 1.05rem); text-align: left;">
+                <p class="letter-p" style="margin-bottom: 16px;">
+                    Pyare Bhaiya, agar aap ye padh rahe hain, toh iska matlab hai ki aapka ek aur successful aur amazing saal shuru ho chuka hai!
+                </p>
+                <p class="letter-p" style="margin-bottom: 16px;">
+                    Aap mere life ke sabse bade guide, protector aur inspiration hain. Jab bhi mujhe kisi advice ya help ki zaroorat hui, aap sabse pehle khade rahe.
+                </p>
+                <p class="letter-p" style="margin-bottom: 16px;">
+                    Ye chota sa digital gift sirf aapko ye yaad dilaane ke liye hai ki aap hamare dil me kitni special jagah rakhte hain. Hamesha aise hi muskuraate rahiye aur life me bulandiyon ko chhuiye!
+                </p>
+                <p class="letter-p" style="margin-top: 30px; text-align: right; font-family: 'Cinzel', serif; font-size: 1.8rem; color: var(--primary); font-weight: 700;">
+                    With Endless Respect & Love ❤️ <br> - Your Brother / Sibling
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CAKE CUTTING SPECIAL BIRTHDAY WISH POPUP MODAL -->
+    <div class="modal" id="cake-wish-modal">
+        <div class="modal-content">
+            <button class="close-btn" id="cake-wish-modal-close" aria-label="Close Modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <span style="font-size: 4rem; display: block; margin-bottom: 10px;">🎂✨</span>
+            <h2 class="cursive" style="font-size: clamp(2.4rem, 5vw, 3.5rem); color: var(--primary); margin-bottom: 15px;">Happy Birthday Bade Bhaiya! 🎂✨</h2>
+            <p style="color: #eee; line-height: 1.8; font-size: clamp(1.05rem, 2vw, 1.3rem); margin-bottom: 22px; font-family: 'Playfair Display', serif;">
+                "Wishing you a year filled with grand success, amazing health, unstoppable growth, and endless happiness!" 👑💖✨
+            </p>
+            <button class="btn-glow" onclick="closeModal('cake-wish-modal')">
+                <span>Thank You So Much! ❤️</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- In-Page Success Notification Modal -->
+    <div class="modal" id="success-modal">
+        <div class="modal-content">
+            <button class="close-btn" id="success-modal-close" aria-label="Close Modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <span style="font-size: 3.5rem; display: block; margin-bottom: 10px;">🎉🎁</span>
+            <h2 class="cursive" style="font-size: clamp(2.2rem, 4.5vw, 3.2rem); color: var(--primary); margin-bottom: 15px;">Message Sent Successfully! 🎉</h2>
+            <p style="color: #eee; line-height: 1.8; font-size: 1.1rem; margin-bottom: 25px;">
+                Aapka gift request submit ho gaya hai! 🎁❤️
+            </p>
+            <div style="background: rgba(251,191,36,0.15); border: 1px dashed var(--primary); padding: 16px; border-radius: 16px; margin-bottom: 22px;">
+                <p style="color: var(--primary); font-family: 'Playfair Display', serif; font-size: 1rem; font-style: italic;">
+                    "Mujhe aapka gift claim request mil gaya hai Bhaiya! Bilkul tension mat lijiye! 👑✨"
+                </p>
+            </div>
+            <button class="btn-glow" onclick="closeModal('success-modal')">
+                <span>Awesome! ❤️</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        Developed with ❤️ for <span style="color: var(--primary); font-weight: bold;">Bade Bhaiya</span> | Wishing You Success & Happiness 👑
+    </footer>
+
+    <!-- ============================================================
+       JAVASCRIPT LOGIC
+       ============================================================ -->
+    <script>
+        // =========================================================================
+        // ⏰ COUNTDOWN TIMER CONFIGURATION (SET UNLOCK DATE & TIME HERE!)
+        // =========================================================================
+        const TARGET_UNLOCK_DATE = "2026-08-15T18:54:00"; 
+
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
+        // Audio System
+        const bgMusic = document.getElementById('bg-music');
+        let isMuted = false;
+        const musicBtn = document.getElementById('music-btn');
+
+        function playMusic() {
+            if (bgMusic && bgMusic.paused && !isMuted) {
+                bgMusic.play().catch(() => {});
+            }
+        }
+
+        window.addEventListener('click', () => {
+            playMusic();
+        }, { once: true });
+
+        musicBtn.addEventListener('click', () => {
+            isMuted = !isMuted;
+            document.getElementById('music-icon').className = isMuted ? 'fas fa-volume-mute' : 'fas fa-music';
+            if (isMuted) {
+                bgMusic.pause();
+            } else {
+                bgMusic.play().catch(() => {});
+            }
+        });
+
+        // STEP 1: COUNTDOWN TIMER LOGIC
+        const launchTime = new Date(TARGET_UNLOCK_DATE).getTime();
+        const countdownSection = document.getElementById("countdown-section");
+        const landingPage = document.getElementById("landing-page");
+        let countdownFinished = false;
+
+        const rollers = {
+          'days-tens': { el: document.getElementById('days-tens'), current: 0 },
+          'days-ones': { el: document.getElementById('days-ones'), current: 0 },
+          'hours-tens': { el: document.getElementById('hours-tens'), current: 0 },
+          'hours-ones': { el: document.getElementById('hours-ones'), current: 0 },
+          'mins-tens': { el: document.getElementById('mins-tens'), current: 0 },
+          'mins-ones': { el: document.getElementById('mins-ones'), current: 0 },
+          'secs-tens': { el: document.getElementById('secs-tens'), current: 0 },
+          'secs-ones': { el: document.getElementById('secs-ones'), current: 0 }
+        };
+
+        function initRollers() {
+          Object.values(rollers).forEach(r => {
+            let html = '';
+            for (let i = 0; i <= 10; i++) {
+              html += `<div class="roller-digit">${i % 10}</div>`;
+            }
+            r.el.innerHTML = html;
+            r.el.style.transform = 'translateY(0)';
+          });
+        }
+        initRollers();
+
+        function getRollerHeight() {
+          const digit = document.querySelector('.roller-digit');
+          return digit ? digit.offsetHeight : 70;
+        }
+
+        function setRoller(rollerKey, newDigit) {
+          const r = rollers[rollerKey];
+          if (r.current === newDigit) return false;
+          const h = getRollerHeight();
+          r.el.classList.remove('instant');
+          r.el.style.transform = `translateY(-${newDigit * h}px)`;
+          r.current = newDigit;
+          return true;
+        }
+
+        (function() {
+          const container = document.getElementById('countdown-particles');
+          for (let i = 0; i < 35; i++) {
+            const p = document.createElement('div');
+            p.className = 'countdown-particle';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.top = Math.random() * 100 + '%';
+            p.style.animationDelay = Math.random() * 10 + 's';
+            p.style.animationDuration = (6 + Math.random() * 8) + 's';
+            container.appendChild(p);
+          }
+        })();
+
+        var timerInterval;
+        function updateTimer() {
+          const now = new Date().getTime();
+          const distance = launchTime - now;
+
+          if (distance <= 0) {
+            ['days-tens','days-ones','hours-tens','hours-ones','mins-tens','mins-ones','secs-tens','secs-ones'].forEach(k => setRoller(k, 0));
+            if (!countdownFinished) {
+              countdownFinished = true;
+              transitionToEnvelope();
+            }
+            clearInterval(timerInterval);
+            return;
+          }
+
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          const daysStr = String(Math.min(days, 99)).padStart(2, '0');
+          const hoursStr = String(hours).padStart(2, '0');
+          const minsStr = String(minutes).padStart(2, '0');
+          const secsStr = String(seconds).padStart(2, '0');
+
+          setRoller('days-tens', parseInt(daysStr[0]));
+          setRoller('days-ones', parseInt(daysStr[1]));
+          setRoller('hours-tens', parseInt(hoursStr[0]));
+          setRoller('hours-ones', parseInt(hoursStr[1]));
+          setRoller('mins-tens', parseInt(minsStr[0]));
+          setRoller('mins-ones', parseInt(minsStr[1]));
+          setRoller('secs-tens', parseInt(secsStr[0]));
+          setRoller('secs-ones', parseInt(secsStr[1]));
+        }
+
+        function transitionToEnvelope() {
+          const flash = document.getElementById('transition-flash');
+          flash.classList.add('active');
+          countdownSection.classList.add('hide');
+          setTimeout(() => {
+            countdownSection.style.display = 'none';
+            landingPage.classList.add('show');
+            initEnvelopePage();
+          }, 1000);
+        }
+
+        updateTimer();
+        timerInterval = setInterval(updateTimer, 1000);
+
+        // STEP 2: ROYAL ENVELOPE PAGE LOGIC
+        function initEnvelopePage() {
+          const container = document.getElementById('landing-particles');
+          for (let i = 0; i < 40; i++) {
+            const p = document.createElement('div');
+            p.className = 'landing-particle';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.top = Math.random() * 100 + '%';
+            p.style.animationDelay = Math.random() * 8 + 's';
+            p.style.animationDuration = (5 + Math.random() * 8) + 's';
+            container.appendChild(p);
+          }
+          const envelopeWrapper = document.getElementById('envelope-wrapper');
+          const typewriterContainer = document.getElementById('typewriter-container');
+          setTimeout(() => envelopeWrapper.classList.add('slide-up'), 500);
+          setTimeout(() => {
+            typewriterContainer.classList.add('show');
+            startFirstTypewriter();
+          }, 2000);
+        }
+
+        function startFirstTypewriter() {
+          const lines = [
+            { el: document.getElementById('typewriter-line1'), text: 'A special day for Bade Bhaiya 👑' },
+            { el: document.getElementById('typewriter-line2'), text: 'Click the gold seal to open ↓' }
+          ];
+          let li = 0, ci = 0;
+          function type() {
+            if (li >= lines.length) return;
+            const cur = lines[li];
+            if (ci <= cur.text.length) {
+              cur.el.innerHTML = cur.text.substring(0, ci) + '<span class="cursor"></span>';
+              ci++;
+              setTimeout(type, 70 + Math.random() * 50);
+            } else {
+              cur.el.innerHTML = cur.text;
+              li++; ci = 0;
+              if (li < lines.length) setTimeout(type, 500);
+              else {
+                const last = lines[lines.length - 1];
+                last.el.innerHTML = last.text + '<span class="cursor"></span>';
+              }
+            }
+          }
+          type();
+        }
+
+        const waxSeal = document.getElementById('wax-seal');
+        let envelopeOpened = false;
+        waxSeal.addEventListener('click', openEnvelope);
+
+        function openEnvelope() {
+          if (envelopeOpened) return;
+          envelopeOpened = true;
+          playMusic();
+          const envelopeWrapper = document.getElementById('envelope-wrapper');
+          const typewriterContainer = document.getElementById('typewriter-container');
+          typewriterContainer.classList.add('fade');
+          waxSeal.classList.add('breaking');
+          
+          setTimeout(() => envelopeWrapper.classList.add('opened'), 700);
+          setTimeout(() => envelopeWrapper.classList.add('card-out'), 1600);
+          setTimeout(() => envelopeWrapper.classList.add('shrink'), 2700);
+          setTimeout(() => {
+            landingPage.classList.add('hide');
+            document.getElementById('message-page').classList.add('visible');
+          }, 3800);
+          setTimeout(() => startWishesTypewriter(), 5200);
+        }
+
+        // STEP 3: ROYAL SCROLL LOGIC
+        function startWishesTypewriter() {
+          const wishes = [
+            { el: document.getElementById('wish-1'), text: 'To the best brother, mentor and guide...' },
+            { el: document.getElementById('wish-2'), text: '👑 Bhaiya, You are truly an inspiration! 👑' },
+            { el: document.getElementById('wish-3'), text: 'May your year be filled with immense success, joy and strength.' },
+            { el: document.getElementById('wish-4'), text: '— A grand celebration awaits you —' }
+          ];
+          let wi = 0, ci = 0;
+          function type() {
+            if (wi >= wishes.length) {
+              setTimeout(() => document.getElementById('lets-go-container').classList.add('show'), 400);
+              return;
+            }
+            const cur = wishes[wi];
+            if (ci <= cur.text.length) {
+              cur.el.innerHTML = cur.text.substring(0, ci) + '<span class="wish-cursor"></span>';
+              ci++;
+              setTimeout(type, 40 + Math.random() * 40);
+            } else {
+              cur.el.innerHTML = cur.text;
+              wi++; ci = 0;
+              setTimeout(type, 600);
+            }
+          }
+          type();
+        }
+
+        // STEP 4 TRANSITION: CLICKING "LET'S CELEBRATE ->" OPENS MAIN HOME PAGE!
+        document.getElementById('lets-go-btn').addEventListener('click', () => {
+          playMusic();
+          confetti({ particleCount: 140, spread: 95, origin: { y: 0.6 }, colors: ['#fbbf24', '#f59e0b', '#d97706', '#ffffff'] });
+          const msgPage = document.getElementById('message-page');
+          msgPage.classList.add('exit');
+          setTimeout(() => {
+            msgPage.style.display = 'none';
+            document.getElementById('main-content').classList.add('visible');
+            window.scrollTo(0, 0);
+
+            initCake3D();
+            initScratchCard();
+          }, 1100);
+        });
+
+        // 🌟 3D INFINITE GOLDEN DUST & LUMINESCENT ORBS BACKGROUND (THREE.JS OVER PURE BLACK)
+        const bgCanvas = document.getElementById('bg-canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.z = 8;
+
+        const renderer = new THREE.WebGLRenderer({ canvas: bgCanvas, alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        scene.add(new THREE.AmbientLight(0xffffff, 0.95));
+        const dirLight = new THREE.DirectionalLight(0xfbbf24, 2.0);
+        dirLight.position.set(2, 5, 3);
+        scene.add(dirLight);
+
+        const goldPointLight = new THREE.PointLight(0xfef08a, 3.0, 20);
+        goldPointLight.position.set(-3, -2, 4);
+        scene.add(goldPointLight);
+
+        // 1. Shimmering Golden Dust Particles Group
+        const particleCount = window.innerWidth < 768 ? 70 : 150;
+        const particleGeom = new THREE.BufferGeometry();
+        const particlePositions = new Float32Array(particleCount * 3);
+        const particleSpeeds = [];
+
+        for (let i = 0; i < particleCount; i++) {
+            particlePositions[i * 3] = (Math.random() - 0.5) * 18;
+            particlePositions[i * 3 + 1] = (Math.random() - 0.5) * 16;
+            particlePositions[i * 3 + 2] = (Math.random() - 0.5) * 12;
+
+            particleSpeeds.push({
+                y: Math.random() * 0.016 + 0.007,
+                x: Math.random() * 0.008 - 0.004
+            });
+        }
+
+        particleGeom.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+
+        // Canvas Texture for Golden Orb Glow Particles
+        function createGoldOrbTexture() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 64;
+            canvas.height = 64;
+            const ctx = canvas.getContext('2d');
+
+            const grad = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+            grad.addColorStop(0, 'rgba(255, 245, 200, 1.0)');
+            grad.addColorStop(0.3, 'rgba(251, 191, 36, 0.85)');
+            grad.addColorStop(0.7, 'rgba(217, 119, 6, 0.35)');
+            grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+            ctx.fillStyle = grad;
+            ctx.beginPath();
+            ctx.arc(32, 32, 32, 0, Math.PI * 2);
+            ctx.fill();
+
+            return new THREE.CanvasTexture(canvas);
+        }
+
+        const pMat = new THREE.PointsMaterial({
+            color: 0xfbbf24,
+            size: window.innerWidth < 768 ? 0.38 : 0.48,
+            map: createGoldOrbTexture(),
+            transparent: true,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false
+        });
+
+        const goldParticlesMesh = new THREE.Points(particleGeom, pMat);
+        scene.add(goldParticlesMesh);
+
+        // 2. 3D Floating Gold Spheres with metallic reflection over pure black space
+        const sphereGeom = new THREE.SphereGeometry(0.18, 16, 16);
+        const goldMetallicMat = new THREE.MeshStandardMaterial({
+            color: 0xfbbf24,
+            roughness: 0.1,
+            metalness: 0.95,
+            emissive: 0xd97706,
+            emissiveIntensity: 0.25
+        });
+
+        const floatingSpheres = [];
+        const sphereCount = window.innerWidth < 768 ? 22 : 50;
+
+        for (let i = 0; i < sphereCount; i++) {
+            const mesh = new THREE.Mesh(sphereGeom, goldMetallicMat);
+            mesh.position.set(
+                (Math.random() - 0.5) * 16,
+                (Math.random() - 0.5) * 14,
+                (Math.random() - 0.5) * 10
+            );
+            const scale = Math.random() * 0.4 + 0.2;
+            mesh.scale.set(scale, scale, scale);
+
+            mesh.userData = {
+                speedY: Math.random() * 0.012 + 0.005,
+                speedX: Math.random() * 0.006 - 0.003,
+                baseScale: scale
+            };
+
+            scene.add(mesh);
+            floatingSpheres.push(mesh);
+        }
+
+        let time = 0;
+        function animateGoldParticles() {
+            requestAnimationFrame(animateGoldParticles);
+            time += 0.015;
+
+            // Animate points positions (upward infinite stream)
+            const positions = goldParticlesMesh.geometry.attributes.position.array;
+            for (let i = 0; i < particleCount; i++) {
+                positions[i * 3 + 1] += particleSpeeds[i].y;
+                positions[i * 3] += Math.sin(time + i) * 0.003;
+
+                if (positions[i * 3 + 1] > 8) {
+                    positions[i * 3 + 1] = -8;
+                    positions[i * 3] = (Math.random() - 0.5) * 18;
+                }
+            }
+            goldParticlesMesh.geometry.attributes.position.needsUpdate = true;
+
+            // Animate 3D Metallic Spheres
+            floatingSpheres.forEach(s => {
+                s.position.y += s.userData.speedY;
+                s.position.x += s.userData.speedX;
+
+                const pulse = Math.sin(time * 3 + s.position.x) * 0.08;
+                s.scale.setScalar(s.userData.baseScale + pulse);
+
+                if (s.position.y > 8) {
+                    s.position.y = -8;
+                    s.position.x = (Math.random() - 0.5) * 16;
+                }
+            });
+
+            renderer.render(scene, camera);
+        }
+        animateGoldParticles();
+
+        // 3D Cake Scene Initialization
+        let cakeRenderer, cakeCamera, cakeScene, cakeGroup, sliceGroup, flameCore, knifeGroup;
+        let candleIsLit = true;
+        let isCakeRotating = true;
+        let cakeClock = new THREE.Clock();
+        let cakeInitialized = false;
+
+        function initCake3D() {
+            if (cakeInitialized) {
+                onCakeResize();
+                return;
+            }
+            cakeInitialized = true;
+
+            const cakeCanvas = document.getElementById('cake-canvas');
+            const cakeContainer = document.getElementById('cake-container');
+            const width = cakeContainer.clientWidth || 560;
+            const height = cakeContainer.clientHeight || 380;
+
+            cakeScene = new THREE.Scene();
+            cakeCamera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+            cakeCamera.position.set(0, 3.2, 7.0);
+            cakeCamera.lookAt(0, 0.5, 0);
+
+            cakeRenderer = new THREE.WebGLRenderer({ canvas: cakeCanvas, alpha: true, antialias: true });
+            cakeRenderer.setSize(width, height);
+            cakeRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            cakeGroup = new THREE.Group();
+            cakeScene.add(cakeGroup);
+
+            // Lighting for rich metallic reflections
+            cakeScene.add(new THREE.AmbientLight(0xffffff, 1.1));
+            const spotLight = new THREE.PointLight(0xfbbf24, 3.5, 16);
+            spotLight.position.set(3, 7, 4);
+            cakeScene.add(spotLight);
+
+            const sideLight = new THREE.PointLight(0xffffff, 2.0, 12);
+            sideLight.position.set(-4, 3, -2);
+            cakeScene.add(sideLight);
+
+            // Luxury Materials
+            const matPlatter = new THREE.MeshStandardMaterial({ color: 0xfbbf24, metalness: 0.95, roughness: 0.08 });
+            const matGoldCakeTier = new THREE.MeshStandardMaterial({ color: 0xd97706, metalness: 0.75, roughness: 0.25 });
+            const matChocoCakeTier = new THREE.MeshStandardMaterial({ color: 0x2b1509, metalness: 0.2, roughness: 0.3 });
+            const matGoldRibbon = new THREE.MeshStandardMaterial({ color: 0xfef08a, metalness: 0.9, roughness: 0.1 });
+            const matPearl = new THREE.MeshStandardMaterial({ color: 0xfbbf24, metalness: 0.95, roughness: 0.05 });
+            const matCandle = new THREE.MeshStandardMaterial({ color: 0xfbbf24, metalness: 0.8, roughness: 0.2 });
+
+            // 1. Platter
+            const platter = new THREE.Mesh(new THREE.CylinderGeometry(1.95, 2.15, 0.15, 32), matPlatter);
+            platter.position.y = -0.4;
+            cakeGroup.add(platter);
+
+            // 2. Base Cake Tier (Rich Metallic Gold)
+            const mainCakeBody = new THREE.Mesh(
+                new THREE.CylinderGeometry(1.6, 1.6, 0.8, 32, 1, false, 0.3, Math.PI * 1.8),
+                matGoldCakeTier
+            );
+            mainCakeBody.position.y = 0.05;
+            cakeGroup.add(mainCakeBody);
+
+            // Gold Ribbon trim for base tier
+            const baseRibbon = new THREE.Mesh(
+                new THREE.CylinderGeometry(1.62, 1.62, 0.1, 32, 1, false, 0.3, Math.PI * 1.8),
+                matGoldRibbon
+            );
+            baseRibbon.position.y = -0.3;
+            cakeGroup.add(baseRibbon);
+
+            // 3. Top Tier (Rich Belgian Dark Chocolate)
+            const topTier = new THREE.Mesh(
+                new THREE.CylinderGeometry(1.15, 1.15, 0.7, 32, 1, false, 0.3, Math.PI * 1.8),
+                matChocoCakeTier
+            );
+            topTier.position.y = 0.9;
+            cakeGroup.add(topTier);
+
+            // Gold Ribbon trim for top tier
+            const topRibbon = new THREE.Mesh(
+                new THREE.CylinderGeometry(1.17, 1.17, 0.08, 32, 1, false, 0.3, Math.PI * 1.8),
+                matGoldRibbon
+            );
+            topRibbon.position.y = 0.6;
+            cakeGroup.add(topRibbon);
+
+            // 4. Gold Pearl Toppings around top tier rim
+            const pearlGeom = new THREE.SphereGeometry(0.06, 12, 12);
+            for (let i = 0; i < 12; i++) {
+                const angle = 0.3 + (i / 12) * (Math.PI * 1.8);
+                const px = Math.cos(angle) * 1.05;
+                const pz = Math.sin(angle) * 1.05;
+                const pearl = new THREE.Mesh(pearlGeom, matPearl);
+                pearl.position.set(px, 1.28, pz);
+                cakeGroup.add(pearl);
+            }
+
+            // 5. 3D Cut Slice (Gourmet Vanilla Gold & Chocolate Layers)
+            sliceGroup = new THREE.Group();
+            const sliceBottom = new THREE.Mesh(
+                new THREE.CylinderGeometry(1.6, 1.6, 0.8, 16, 1, false, -0.3, 0.6),
+                new THREE.MeshStandardMaterial({ color: 0xd97706, metalness: 0.75, roughness: 0.25 })
+            );
+            sliceBottom.position.y = 0.05;
+            sliceGroup.add(sliceBottom);
+
+            const sliceTop = new THREE.Mesh(
+                new THREE.CylinderGeometry(1.15, 1.15, 0.7, 16, 1, false, -0.3, 0.6),
+                new THREE.MeshStandardMaterial({ color: 0x2b1509, roughness: 0.3 })
+            );
+            sliceTop.position.y = 0.9;
+            sliceGroup.add(sliceTop);
+
+            // Gold slice ribbon accents
+            const sliceRibbon = new THREE.Mesh(
+                new THREE.CylinderGeometry(1.62, 1.62, 0.1, 16, 1, false, -0.3, 0.6),
+                matGoldRibbon
+            );
+            sliceRibbon.position.y = -0.3;
+            sliceGroup.add(sliceRibbon);
+
+            cakeGroup.add(sliceGroup);
+
+            // 6. Candle & Flame
+            const candle = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.45, 16), matCandle);
+            candle.position.set(0, 1.55, 0);
+            cakeGroup.add(candle);
+
+            flameCore = new THREE.Mesh(new THREE.ConeGeometry(0.07, 0.22, 16), new THREE.MeshBasicMaterial({ color: 0xffcc00 }));
+            flameCore.position.set(0, 1.88, 0);
+            cakeGroup.add(flameCore);
+
+            // 7. Mini 3D Gold Crown Ornament on top tier
+            const crownGroup = new THREE.Group();
+            const crownBase = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.08, 16), matPlatter);
+            crownGroup.add(crownBase);
+            const crownSpikeGeom = new THREE.ConeGeometry(0.04, 0.12, 8);
+            for (let i = 0; i < 5; i++) {
+                const angle = (i / 5) * Math.PI * 2;
+                const spike = new THREE.Mesh(crownSpikeGeom, matPlatter);
+                spike.position.set(Math.cos(angle) * 0.15, 0.1, Math.sin(angle) * 0.15);
+                crownGroup.add(spike);
+            }
+            crownGroup.position.set(0.45, 1.3, 0.3);
+            crownGroup.rotation.z = -0.15;
+            cakeGroup.add(crownGroup);
+
+            // 8. Metallic Chef Knife
+            knifeGroup = new THREE.Group();
+            const matSteel = new THREE.MeshStandardMaterial({ color: 0xf8fafc, metalness: 0.98, roughness: 0.05 });
+            const matGoldHandle = new THREE.MeshStandardMaterial({ color: 0xfbbf24, metalness: 0.9, roughness: 0.1 });
+
+            const bladeMesh = new THREE.Mesh(new THREE.BoxGeometry(0.03, 1.4, 0.35), matSteel);
+            bladeMesh.position.y = 0.7;
+            knifeGroup.add(bladeMesh);
+
+            const handleMesh = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 0.6, 16), matGoldHandle);
+            handleMesh.position.y = 1.7;
+            knifeGroup.add(handleMesh);
+
+            knifeGroup.position.set(0, 4.5, 1.5);
+            knifeGroup.rotation.set(0.3, 0, 0);
+            cakeScene.add(knifeGroup);
+
+            animateCake();
+        }
+
+        function animateCake() {
+            requestAnimationFrame(animateCake);
+            if (!cakeRenderer) return;
+            const elapsedTime = cakeClock.getElapsedTime();
+
+            if (isCakeRotating && cakeGroup) {
+                cakeGroup.rotation.y = elapsedTime * 0.3;
+            }
+
+            if (candleIsLit && flameCore) {
+                flameCore.scale.y = 1.0 + Math.sin(elapsedTime * 15) * 0.12;
+            }
+
+            cakeRenderer.render(cakeScene, cakeCamera);
+        }
+
+        function onCakeResize() {
+            if (!cakeRenderer) return;
+            const cakeContainer = document.getElementById('cake-container');
+            const width = cakeContainer.clientWidth || 560;
+            const height = cakeContainer.clientHeight || 380;
+            cakeCamera.aspect = width / height;
+            cakeCamera.updateProjectionMatrix();
+            cakeRenderer.setSize(width, height);
+        }
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            onCakeResize();
+        });
+
+        // CAKE CUTTING BUTTON ACTION
+        document.getElementById('blow-btn').addEventListener('click', () => {
+            if (!cakeInitialized) initCake3D();
+            candleIsLit = false;
+            if (flameCore) flameCore.scale.set(0, 0, 0);
+            isCakeRotating = false;
+            if (cakeGroup) gsap.to(cakeGroup.rotation, { y: 0, duration: 0.5 });
+
+            const cutTL = gsap.timeline();
+            cutTL.to(knifeGroup.position, { x: 0, y: 2.2, z: 1.2, duration: 0.8, ease: "power2.out" })
+                 .to(knifeGroup.rotation, { x: 0.4, y: 0, z: 0, duration: 0.6 }, "-=0.6")
+                 .to(knifeGroup.position, { y: 0.4, duration: 0.8, ease: "power1.inOut" })
+                 .to(sliceGroup.position, { z: 0.7, y: 0.2, duration: 1.0, ease: "back.out(1.8)" }, "-=0.2")
+                 .to(knifeGroup.position, { y: 5, z: 2, duration: 1.0, ease: "power2.in" })
+                 .call(() => {
+                     document.getElementById('wish-msg').style.opacity = '1';
+                     confetti({ particleCount: 180, spread: 100, origin: { y: 0.45 }, colors: ['#fbbf24', '#f59e0b', '#d97706', '#ffffff'] });
+                     setTimeout(() => { openModal('cake-wish-modal'); }, 400);
+                 });
+        });
+
+        // SCRATCH CARD INITIALIZATION & LOGIC
+        let scratchInitialized = false;
+        function initScratchCard() {
+            const scratchCanvas = document.getElementById('scratch-canvas');
+            const scratchWrapper = document.getElementById('scratch-wrapper');
+            const scratchCtx = scratchCanvas.getContext('2d');
+
+            const width = scratchWrapper.clientWidth || 380;
+            const height = scratchWrapper.clientHeight || 190;
+
+            scratchCanvas.width = width;
+            scratchCanvas.height = height;
+
+            const grad = scratchCtx.createLinearGradient(0, 0, width, height);
+            grad.addColorStop(0, '#fef08a');
+            grad.addColorStop(0.4, '#fbbf24');
+            grad.addColorStop(0.8, '#d97706');
+            grad.addColorStop(1, '#92400e');
+            scratchCtx.fillStyle = grad;
+            scratchCtx.fillRect(0, 0, width, height);
+
+            scratchCtx.fillStyle = '#000000';
+            scratchCtx.font = 'bold 15px Poppins';
+            scratchCtx.textAlign = 'center';
+            scratchCtx.fillText('✨ Scratch Here With Mouse/Finger ✨', width / 2, height / 2);
+
+            if (scratchInitialized) return;
+            scratchInitialized = true;
+
+            let isScratching = false;
+            function scratch(e) {
+                if (!isScratching) return;
+                const rect = scratchCanvas.getBoundingClientRect();
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                const x = clientX - rect.left;
+                const y = clientY - rect.top;
+
+                scratchCtx.globalCompositeOperation = 'destination-out';
+                scratchCtx.beginPath();
+                scratchCtx.arc(x, y, 26, 0, Math.PI * 2);
+                scratchCtx.fill();
+            }
+
+            scratchCanvas.addEventListener('mousedown', (e) => { isScratching = true; scratch(e); });
+            scratchCanvas.addEventListener('mouseup', () => isScratching = false);
+            scratchCanvas.addEventListener('mouseleave', () => isScratching = false);
+            scratchCanvas.addEventListener('mousemove', scratch);
+
+            scratchCanvas.addEventListener('touchstart', (e) => { isScratching = true; scratch(e); }, { passive: true });
+            scratchCanvas.addEventListener('touchend', () => isScratching = false);
+            scratchCanvas.addEventListener('touchmove', scratch, { passive: true });
+        }
+
+        function selectProposal(proposalName, cardEl) {
+            document.querySelectorAll('.investigation-card').forEach(card => card.classList.remove('active'));
+            cardEl.classList.add('active');
+
+            const nameSpan = document.getElementById('proposal-name');
+            nameSpan.textContent = proposalName;
+            confetti({ particleCount: 60, spread: 65, origin: { y: 0.75 }, colors: ['#fbbf24', '#f59e0b', '#ffffff'] });
+        }
+
+        // Form Submit
+        const giftForm = document.getElementById('gift-form');
+
+        giftForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const submitBtn = document.getElementById('submit-gift-btn');
+            submitBtn.disabled = true;
+            submitBtn.querySelector('span').textContent = 'Sending Message... ⏳';
+
+            const formData = new FormData(giftForm);
+            formData.append('_subject', '👑 Bhaiya Sent You A Birthday Gift Request!');
+            formData.append('_captcha', 'false');
+
+            fetch('https://formsubmit.co/ajax/rohitkuma0237@gmail.com', {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                submitBtn.disabled = false;
+                submitBtn.querySelector('span').textContent = 'Send Gift Demand Direct To Me 🎁✨';
+                giftForm.reset();
+
+                confetti({ particleCount: 160, spread: 90, origin: { y: 0.5 }, colors: ['#fbbf24', '#f59e0b', '#ffffff'] });
+                openModal('success-modal');
+            })
+            .catch(err => {
+                submitBtn.disabled = false;
+                submitBtn.querySelector('span').textContent = 'Send Gift Demand Direct To Me 🎁✨';
+                giftForm.reset();
+                confetti({ particleCount: 160, spread: 90, origin: { y: 0.5 }, colors: ['#fbbf24', '#f59e0b', '#ffffff'] });
+                openModal('success-modal');
+            });
+        });
+
+        // Send Love & Respect
+        document.getElementById('send-love-btn').addEventListener('click', () => {
+            confetti({ particleCount: 180, spread: 100, origin: { y: 0.8 }, colors: ['#fbbf24', '#f59e0b', '#ffffff'] });
+            const loveMsg = document.getElementById('love-msg');
+            loveMsg.style.opacity = '1';
+        });
+
+        // ULTRA SMOOTH HIGH-LEVEL MODAL UTILITIES
+        function openModal(id) {
+            const m = document.getElementById(id);
+            if (m) m.classList.add('open');
+        }
+        function closeModal(id) {
+            const m = document.getElementById(id);
+            if (m) m.classList.remove('open');
+        }
+
+        document.getElementById('open-letter-btn').addEventListener('click', () => openModal('letter-modal'));
+        document.getElementById('modal-close').addEventListener('click', () => closeModal('letter-modal'));
+        document.getElementById('cake-wish-modal-close').addEventListener('click', () => closeModal('cake-wish-modal'));
+        document.getElementById('success-modal-close').addEventListener('click', () => closeModal('success-modal'));
+
+        // Close modal on background click
+        document.querySelectorAll('.modal').forEach(m => {
+            m.addEventListener('click', (e) => {
+                if (e.target === m) m.classList.remove('open');
+            });
+        });
+    </script>
+</body>
+</html>
